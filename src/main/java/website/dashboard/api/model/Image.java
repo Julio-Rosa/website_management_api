@@ -19,4 +19,9 @@ public class Image {
     @Column(nullable = false)
     private String imageUrl;
     private String publicId;
+
+    public Image( String imageUrl, String publicId) {
+        this.imageUrl = imageUrl;
+        this.publicId = publicId;
+    }
 }
