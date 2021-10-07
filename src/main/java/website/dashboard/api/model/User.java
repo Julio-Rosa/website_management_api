@@ -1,5 +1,6 @@
 package website.dashboard.api.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,8 @@ import website.dashboard.api.enums.Authorities;
 
 import javax.persistence.*;
 import java.nio.file.LinkOption;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +30,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Authorities authorities;
 }

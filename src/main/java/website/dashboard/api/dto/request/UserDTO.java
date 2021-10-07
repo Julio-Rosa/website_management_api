@@ -1,5 +1,6 @@
 package website.dashboard.api.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,7 @@ import website.dashboard.api.enums.Authorities;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -32,6 +34,5 @@ public class UserDTO {
 
 
    @Enumerated(EnumType.STRING)
-   @NotEmpty(message = "The authorities cannot be empty")
-    private Authorities authorities;
+   private Authorities authorities;
 }

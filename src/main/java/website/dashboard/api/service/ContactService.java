@@ -34,8 +34,8 @@ public class ContactService {
         findById(id);
         contactRepository.deleteById(id);
     }
-    public Contact updateById(long id, ContactDTO contactDTO){
-        findById(id);
+    public Contact updateById(ContactDTO contactDTO){
+        findById(contactDTO.getId());
         Contact contactToUpdate = contactMapper.toModel(contactDTO);
         return contactRepository.save(contactToUpdate);
     }
