@@ -2,6 +2,8 @@ package website.dashboard.api.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import website.dashboard.api.dto.request.UserDTO;
@@ -9,6 +11,7 @@ import website.dashboard.api.dto.response.UserDTOResponse;
 import website.dashboard.api.mapper.UserMapper;
 import website.dashboard.api.model.User;
 import website.dashboard.api.repository.UserRepository;
+import website.dashboard.api.security.SecurityConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +19,17 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class UserService {
+    private SecurityConfig securityConfig;
 
     private UserRepository userRepository;
     private final UserMapper userMapper = UserMapper.INSTANCE;
 
 
     public UserDTOResponse createUser(UserDTO userDTO){
+        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         User userToSave = userMapper.toModel(userDTO);
+        String encodedPassword = passwordEncoder.encode(userToSave.getPassword());
+        userToSave.setPassword(encodedPassword);
         User savedUser = userRepository.save(userToSave);
         return userMapper.toDTOResponse(savedUser);
     }
@@ -59,4 +66,5 @@ public class UserService {
         return userRepository.existsById(id);
 
     }
+
 }
