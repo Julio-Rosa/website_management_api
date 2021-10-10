@@ -3,6 +3,7 @@ package website.dashboard.api.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import website.dashboard.api.dto.request.ContactDTO;
 import website.dashboard.api.model.Contact;
@@ -18,6 +19,7 @@ public class ContactController {
     private ContactService contactService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Contact> createContact(@RequestBody @Valid ContactDTO contactDTO){
         return new ResponseEntity<>(contactService.createContact(contactDTO), HttpStatus.CREATED);
     }
@@ -30,11 +32,13 @@ public class ContactController {
         return new ResponseEntity<>(contactService.findById(id), HttpStatus.OK);
     }
     @DeleteMapping(path = "/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable long id){
         contactService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    @PutMapping(path = "/{id}")
+    @PutMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Contact> update(@Valid @RequestBody ContactDTO contactDTO){
         return new ResponseEntity<>(contactService.updateById(contactDTO), HttpStatus.OK);
     }

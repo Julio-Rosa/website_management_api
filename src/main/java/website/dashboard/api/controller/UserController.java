@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import website.dashboard.api.dto.request.UserDTO;
 import website.dashboard.api.dto.response.UserDTOResponse;
@@ -15,10 +16,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("api/v1/user")
 @AllArgsConstructor
+@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     private UserService userService;
-
 
     @PostMapping
     public ResponseEntity<UserDTOResponse> createUser(@RequestBody @Valid UserDTO userDTO) {

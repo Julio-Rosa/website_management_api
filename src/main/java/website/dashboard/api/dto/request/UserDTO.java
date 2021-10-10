@@ -1,16 +1,13 @@
 package website.dashboard.api.dto.request;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import website.dashboard.api.enums.Authorities;
 
-import javax.persistence.*;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,13 +23,14 @@ public class UserDTO {
 
     @NotEmpty(message = "The username cannot be empty")
     @Size(min = 3, max = 100)
-    private String userName;
+    private String username;
 
     @NotEmpty(message = "The password cannot be empty")
     @Size(min = 8, max = 100)
     private String password;
 
+    private String authorities;
 
-   @Enumerated(EnumType.STRING)
-   private Authorities authorities;
+
+
 }

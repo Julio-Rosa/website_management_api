@@ -1,3 +1,5 @@
+
+
 package website.dashboard.api.mapper;
 
 import org.mapstruct.Mapper;
