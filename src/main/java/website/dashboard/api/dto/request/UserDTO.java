@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Data
@@ -29,6 +30,7 @@ public class UserDTO {
     @Size(min = 8, max = 100)
     private String password;
 
+    @Pattern(regexp = "ROLE_ADMIN|ROLE_USER|ROLE_ADMIN,ROLE_USER")
     private String authorities;
 
 
