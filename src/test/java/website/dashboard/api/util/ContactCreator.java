@@ -1,5 +1,6 @@
 package website.dashboard.api.util;
 
+import website.dashboard.api.dto.request.ContactDTO;
 import website.dashboard.api.model.Address;
 import website.dashboard.api.model.Contact;
 
@@ -26,6 +27,26 @@ public class ContactCreator {
     }
     public static Contact createValidContactToUpdate(){
         return Contact.builder()
+                .id(ID)
+                .email(EMAIL_UPDATE)
+                .phone(PHONE_UPDATE)
+                .build();
+    }
+    public static ContactDTO createContactDTOToBeSave(){
+        return ContactDTO.builder()
+                .email(EMAIL)
+                .phone(PHONE)
+                .build();
+    }
+    public static ContactDTO createValidContactDTO(){
+        return ContactDTO.builder()
+                .id(ID)
+                .email(EMAIL)
+                .phone(PHONE)
+                .build();
+    }
+    public static ContactDTO createValidContactDTOToUpdate(){
+        return ContactDTO.builder()
                 .id(ID)
                 .email(EMAIL_UPDATE)
                 .phone(PHONE_UPDATE)
