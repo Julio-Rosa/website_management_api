@@ -1,46 +1,54 @@
 <h1 align="center">
     <a>🔗 Dashboard API</a>
 </h1>
-<p align="center">🚀 API para dashboard de gerenciamento de websites institucionais</p>
+<p align="center">🚀 API for institutional website management dashboard</p>
 <p align="center">
- <a href="#objetivo">Objetivo</a> •
- <a href="#rodando">Rodando o projeto</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Features</a> • 
- <a href="#licenc-a">Licença</a> • 
- <a href="#autor">Autor</a>
+ <a href="#goals">Goals</a> •
+ <a href="#rodando">Running the Project</a> • 
+ <a href="#tec">Technologies</a> • 
 </p>
-<h3 id="-tecnologias-utilizadas">✅ Tecnologias utilizadas</h3>
+<h3 id="goals">✅ Goals</h3>
+<p>
+This is a simple API for managing institutional websites
+where there are endpoints for uploading images to galleries, creating addresses and company contacts and also creating users who can manage the site.   
+</p>
+<h3 id="tec">✅ Technologies used</h3>
 <ul>
-<li><a href="https://expo.io/">Java 11</a></li>
-<li><a href="https://nodejs.org/en/">Maven</a></li>
-<li><a href="https://reactnative.dev/">Spring Boot</a></li>
-<li><a href="https://reactnative.dev/">Spring Security</a></li>
-<li><a href="https://www.typescriptlang.org/">h2 Database</a></li>
-<li><a href="https://pt-br.reactjs.org/">Map Struct</a></li>
-<li><a href="https://pt-br.reactjs.org/">Lombok</a></li>
+<li>Java 11</li>
+<li>Maven</li>
+<li>Spring Boot</li>
+<li>Spring Security</li>
+<li>h2 Database</li>
+<li>Map Struct</li>
+<li>Lombok</li>
+<li>Junit for tests</li>
+<li>Spring Doc for documentation</li>
 </ul>
-<h3 id="rodando">🎲 Rodando o Projeto</h3>
+
+<h3 id="rodando">🎲 Running the Project</h3>
 <pre class=" language-bash">
 <code class=" language-bash">
-# Clone este repositório
+# Clone this repository
 $ git clone &lt;https://github.com/Julio-Rosa/website_management_api.git&gt;;
 
-# Acesse a pasta do projeto no terminal/cmd
+# Access the project folder in the terminal/cmd
 $ cd website_management_api
 
 
-# Execute a aplicação 
+# Run the application
 $ mvn spring-boot:run
 
-# O servidor inciará na porta:8080 - acesse &lt;http://localhost:8080 &gt;
+# The server started on port:8080 - access &lt;http://localhost:8080 &gt;
 
-# User as credenciais abaixo
+# Use the credentials below
 username: admin
 password: password
 
-# Acesse a documentação para ter acesso aos endpoints
+# Access documentation to access endpoints
 http://localhost:8080/swagger-ui.html
 </code>
 </pre>
+
+
+
 
