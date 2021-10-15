@@ -1,5 +1,6 @@
 package website.dashboard.api.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,9 +24,11 @@ public class ContactDTO {
 
     @NotEmpty(message = "The email cannot be empty")
     @Email(message = "Please provide a valid email address")
+    @Schema(description = "Here is your company email", example = "contact@yourcompany.com")
     private String email;
 
     @Size(min = 13, max = 14)
     @NotEmpty(message = "The phone cannot be empty")
+    @Schema(description = "Here is your company phone", example = "(11)111155555")
     private String phone;
 }

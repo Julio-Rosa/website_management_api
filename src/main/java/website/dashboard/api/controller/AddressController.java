@@ -1,5 +1,8 @@
 package website.dashboard.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,26 +25,54 @@ public class AddressController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "Create address")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "When address is successfully created")
+
+    })
     public ResponseEntity<Address> createAddress(@RequestBody @Valid AddressDTO addressDTO){
         return new ResponseEntity(addressService.createAddress(addressDTO), HttpStatus.CREATED);
 
     }
     @GetMapping
+    @Operation(summary = "List all addresses")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful Operation")
+
+    })
     public ResponseEntity<List<Address>> listAll(){
         return new ResponseEntity<>(addressService.listAll(), HttpStatus.OK);
     }
     @GetMapping(path = "/{id}")
+    @Operation(summary = "Return address by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful Operation"),
+            @ApiResponse(responseCode = "404", description = "When address with this id not exits")
+
+    })
     public ResponseEntity<Address> findById(@PathVariable long id){
         return new ResponseEntity<>(addressService.findById(id), HttpStatus.OK);
     }
     @DeleteMapping(path = "/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "Delete address by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "When the address is successfully deleted"),
+            @ApiResponse(responseCode = "404", description = "When address with this id not exits")
+
+    })
     public ResponseEntity<Void> delete(@PathVariable long id){
         addressService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @PutMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "Update address")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "When the address is successfully updated"),
+            @ApiResponse(responseCode = "404", description = "When address  not exits")
+
+    })
     public ResponseEntity<Address> update(@RequestBody AddressDTO addressDTO){
         return new ResponseEntity<>(addressService.update(addressDTO), HttpStatus.OK);
     }
