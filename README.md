@@ -4,9 +4,9 @@
 <p align="center">🚀 API para dashboard de gerenciamento de websites institucionais</p>
 <p align="center">
  <a href="#objetivo">Objetivo</a> •
- <a href="#roadmap">Roadmap</a> • 
+ <a href="#rodando">Rodando o projeto</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Contribuição</a> • 
+ <a href="#contribuicao">Features</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
@@ -20,26 +20,27 @@
 <li><a href="https://pt-br.reactjs.org/">Map Struct</a></li>
 <li><a href="https://pt-br.reactjs.org/">Lombok</a></li>
 </ul>
-<h3 id="rodandoobackendservidor">🎲 Rodando o Back End (servidor)</h3>
+<h3 id="rodando">🎲 Rodando o Projeto</h3>
 <pre class=" language-bash">
 <code class=" language-bash">
 # Clone este repositório
-$ git clone &lt;https://github.com/tgmarinho/nlw1&gt;
+$ git clone &lt;https://github.com/Julio-Rosa/website_management_api.git&gt;;
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd nlw1
+$ cd website_management_api
 
-# Vá para a pasta server
-$ cd server
 
-# Instale as dependências
-$ npm install
+# Execute a aplicação 
+$ mvn spring-boot:run
 
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
+# O servidor inciará na porta:8080 - acesse &lt;http://localhost:8080 &gt;
 
-# O servidor inciará na porta:3333 - acesse &lt;http://localhost:3333&gt;
+# User as credenciais abaixo
+username: admin
+password: password
 
+# Acesse a documentação para ter acesso aos endpoints
+http://localhost:8080/swagger-ui.html
 </code>
 </pre>
 
