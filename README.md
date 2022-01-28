@@ -18,7 +18,8 @@ where there are endpoints for uploading images to galleries, creating addresses 
 <li>Maven</li>
 <li>Spring Boot</li>
 <li>Spring Security</li>
-<li>h2 Database</li>
+<li>MySQl</li>
+<li>h2 Database(FOR TESTS)</li>
 <li>Map Struct</li>
 <li>Lombok</li>
 <li>Junit for tests</li>
